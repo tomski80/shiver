@@ -1,0 +1,22 @@
+{
+  "shiver.AbilityStr": "Strength",
+  "shiver.AbilityCon": "Constitution",
+  "shiver.AbilityDex": "Dexterity",
+  "shiver.AbilityInt": "Intelligence",
+  "shiver.AbilityWis": "Wisdom",
+  "shiver.AbilityCha": "Charisma",
+
+  "shiver.AbilityStrAbbr": "str",
+  "shiver.AbilityConAbbr": "con",
+  "shiver.AbilityDexAbbr": "dex",
+  "shiver.AbilityIntAbbr": "int",
+  "shiver.AbilityWisAbbr": "wis",
+  "shiver.AbilityChaAbbr": "cha",
+
+  "shiver.EffectCreate": "Create Effect",
+  "shiver.EffectToggle": "Toggle Effect",
+  "shiver.EffectEdit": "Edit Effect",
+  "shiver.EffectDelete": "Delete Effect",
+
+  "shiver.Add": "Add"
+}

@@ -1,0 +1,35 @@
+{
+  "name": "shiver",
+  "title": "shiver",
+  "description": "Unofficial system for the Shiver rpg",
+  "version": "0.1.0",
+  "compatibility": {
+    "minimum": "10.286",
+    "verified": "10.286",
+    "maximum": "10"
+  },
+  "authors": [
+    {
+      "name": "Tomasz Straszewski"
+    }
+  ],
+  "esmodules": ["module/shiver.mjs"],
+  "styles": ["css/shiver.css"],
+  "scripts": [],
+  "packs": [],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "gridDistance": 5,
+  "gridUnits": "ft",
+  "primaryTokenAttribute": "health",
+  "secondaryTokenAttribute": "power",
+  "url": "",
+  "manifest": "",
+  "download": "",
+  "license": "LICENSE.txt"
+}

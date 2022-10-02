@@ -1,0 +1,551 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+/* Global styles */
+.window-app {
+  font-family: "Roboto", sans-serif;
+}
+
+.rollable:hover, .rollable:focus {
+  color: #000;
+  text-shadow: 0 0 10px red;
+  cursor: pointer;
+}
+
+.grid,
+.grid-2col {
+  display: grid;
+  grid-column: span 2/span 2;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 5px 0;
+  padding: 0;
+  grid-row-gap: 5px;
+}
+
+.grid-3col {
+  grid-column: span 3/span 3;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-4col {
+  grid-column: span 4/span 4;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid-5col {
+  grid-column: span 5/span 5;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.grid-6col {
+  grid-column: span 6/span 6;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.grid-7col {
+  grid-column: span 7/span 7;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.grid-8col {
+  grid-column: span 8/span 8;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+}
+
+.grid-9col {
+  grid-column: span 9/span 9;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+}
+
+.grid-10col {
+  grid-column: span 10/span 10;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+}
+
+.grid-11col {
+  grid-column: span 11/span 11;
+  grid-template-columns: repeat(11, minmax(0, 1fr));
+}
+
+.grid-12col {
+  grid-column: span 12/span 12;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.grid-start-2 {
+  grid-column-start: 2;
+}
+
+.grid-start-3 {
+  grid-column-start: 3;
+}
+
+.grid-start-4 {
+  grid-column-start: 4;
+}
+
+.grid-start-5 {
+  grid-column-start: 5;
+}
+
+.grid-start-6 {
+  grid-column-start: 6;
+}
+
+.grid-start-7 {
+  grid-column-start: 7;
+}
+
+.grid-start-8 {
+  grid-column-start: 8;
+}
+
+.grid-start-9 {
+  grid-column-start: 9;
+}
+
+.grid-start-10 {
+  grid-column-start: 10;
+}
+
+.grid-start-11 {
+  grid-column-start: 11;
+}
+
+.grid-start-12 {
+  grid-column-start: 12;
+}
+
+.grid-span-2 {
+  grid-column-end: span 2;
+}
+
+.grid-span-3 {
+  grid-column-end: span 3;
+}
+
+.grid-span-4 {
+  grid-column-end: span 4;
+}
+
+.grid-span-5 {
+  grid-column-end: span 5;
+}
+
+.grid-span-6 {
+  grid-column-end: span 6;
+}
+
+.grid-span-7 {
+  grid-column-end: span 7;
+}
+
+.grid-span-8 {
+  grid-column-end: span 8;
+}
+
+.grid-span-9 {
+  grid-column-end: span 9;
+}
+
+.grid-span-10 {
+  grid-column-end: span 10;
+}
+
+.grid-span-11 {
+  grid-column-end: span 11;
+}
+
+.grid-span-12 {
+  grid-column-end: span 12;
+}
+
+.flex-group-center,
+.flex-group-left,
+.flex-group-right {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.flex-group-left {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.flex-group-right {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.flexshrink {
+  flex: 0;
+}
+
+.flex-between {
+  justify-content: space-between;
+}
+
+.flexlarge {
+  flex: 2;
+}
+
+.align-left {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.align-right {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.align-center {
+  justify-content: center;
+  text-align: center;
+}
+
+/* Styles limited to shiver sheets */
+.shiver {
+  /* ----------------------------------------- */
+  /*  Items Lists                              */
+  /* ----------------------------------------- */
+  /* Example style for shiver (can be removed if not needed) */
+}
+.shiver .item-form {
+  font-family: "Roboto", sans-serif;
+}
+.shiver .window-content {
+  background: rgb(228, 228, 228);
+}
+.shiver .sheet-header {
+  flex: 0 auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: 0px;
+}
+.shiver .sheet-header .profile-img {
+  flex: 0 0 150px;
+  height: 150px;
+  margin-right: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.shiver .sheet-header .header-fields {
+  flex: 1;
+}
+.shiver .sheet-header h1.charname {
+  height: 50px;
+  padding: 0px;
+  margin: 5px 0;
+  border-bottom: 0;
+}
+.shiver .sheet-header h1.charname input {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.shiver .sheet-tabs {
+  flex: 0;
+}
+.shiver nav.tabs {
+  border-bottom: 2px solid #000;
+  border-top: 3px solid #000;
+}
+.shiver .sheet-body,
+.shiver .sheet-body .tab,
+.shiver .sheet-body .tab .editor {
+  height: 100%;
+}
+.shiver .small-tab {
+  height: 50%;
+}
+.shiver .sheet-lifeline {
+  width: 380px;
+}
+.shiver .sheet-skills {
+  width: 480px;
+  margin: auto;
+}
+.shiver .tox .tox-editor-container {
+  background: #fff;
+}
+.shiver .tox .tox-edit-area {
+  padding: 0 8px;
+}
+.shiver .lifeline {
+  width: 360px;
+  height: 15px;
+}
+.shiver .lifeline-label {
+  width: 50px;
+  padding: 0px;
+  margin: 0px;
+}
+.shiver .lifeline-white {
+  height: 50px;
+  width: 100px;
+  margin: 0px;
+  padding: 0px;
+  background: #fff;
+}
+.shiver .lifeline-grey {
+  height: 50px;
+  width: 100px;
+  margin: 0px;
+  padding: 0px;
+  background: rgb(88, 88, 88);
+}
+.shiver .lifeline-darkgrey {
+  height: 50px;
+  width: 100px;
+  margin: 0px;
+  padding: 0px;
+  background: rgb(46, 46, 46);
+}
+.shiver .lifeline-black {
+  height: 50px;
+  width: 100px;
+  margin: 0px;
+  padding: 0px;
+  background: black;
+}
+.shiver .label-white {
+  font-size: 90%;
+  font-weight: bold;
+  color: #fff;
+  display: inline-block;
+  width: 67px;
+  margin-top: 0px;
+}
+.shiver .label-black {
+  font-size: 90%;
+  font-weight: bold;
+  color: #000;
+  display: inline-block;
+  width: 67px;
+  margin-top: 0px;
+}
+.shiver .skill-text {
+  color: #fff;
+  font-size: 70%;
+  text-transform: uppercase;
+}
+.shiver .background-black {
+  background: #000;
+}
+.shiver .background-tan {
+  background: #444;
+}
+.shiver .background-white {
+  background: #fff;
+}
+.shiver .background-red {
+  background: rgb(109, 13, 13);
+}
+.shiver .checkbox-hp {
+  margin: 10px 2px 2px 2px;
+  padding: 5px 5px 5px 5px;
+  width: 15px;
+  height: 15px;
+  border-radius: 3px;
+}
+.shiver .skill-img {
+  width: 45px;
+  height: 45px;
+  border-style: none;
+}
+.shiver .logo-img {
+  border-style: none;
+}
+.shiver .skill {
+  background: #000;
+  width: 60px;
+  height: 140px;
+  border-radius: 30px 30px 0px 0px;
+  padding: 5px;
+  padding-bottom: 1px;
+  margin-bottom: 1px;
+}
+.shiver .skill-text {
+  color: #fff;
+  padding: 0px;
+  margin: 0px;
+}
+.shiver .skill-label {
+  color: #fff;
+  padding: 1px;
+  margin: 1px;
+  margin-top: 10px;
+  font-size: 95%;
+  text-transform: uppercase;
+}
+.shiver .skill-label-offset {
+  width: 50px;
+  height: 65px;
+}
+.shiver .text-grey {
+  color: rgb(97, 97, 97);
+}
+.shiver .trait {
+  border: solid;
+  border-color: #000;
+}
+.shiver .trait-name {
+  background: #000;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.shiver .trait-controls {
+  background: #000;
+  color: #fff;
+  font-weight: bold;
+  display: flex;
+  flex: 0 0 100px;
+  justify-content: flex-end;
+}
+.shiver .health {
+  color: #000;
+}
+.shiver .lifeline-offset {
+  position: relative;
+  bottom: 15px;
+}
+.shiver .nomargin {
+  margin: 0px;
+}
+.shiver .nopadding {
+  padding: 0px;
+}
+.shiver .description {
+  font-style: normal;
+}
+.shiver .togglable-description {
+  font-style: normal;
+}
+.shiver .togglable-description:hover, .shiver .togglable-description:focus {
+  cursor: pointer;
+}
+.shiver .resource-label {
+  font-weight: bold;
+}
+.shiver .items-header {
+  height: 28px;
+  margin: 2px 0;
+  padding: 0;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.05);
+  border: 2px groove #eeede0;
+  font-weight: bold;
+}
+.shiver .items-header > * {
+  font-size: 14px;
+  text-align: center;
+}
+.shiver .items-header .item-name {
+  font-weight: bold;
+  padding-left: 5px;
+  text-align: left;
+  display: flex;
+}
+.shiver .items-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  color: #444;
+}
+.shiver .items-list .item-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.shiver .items-list .item-name {
+  flex: 2;
+  margin: 0;
+  overflow: hidden;
+  font-size: 13px;
+  text-align: left;
+  align-items: center;
+  display: flex;
+}
+.shiver .items-list .item-name h3, .shiver .items-list .item-name h4 {
+  margin: 0;
+  white-space: nowrap;
+  overflow-x: hidden;
+}
+.shiver .items-list .item-control {
+  margin-left: 5px;
+}
+.shiver .items-list .item-controls {
+  display: flex;
+  flex: 0 0 100px;
+  justify-content: flex-end;
+}
+.shiver .items-list .item-controls a {
+  font-size: 12px;
+  text-align: center;
+  margin: 0 6px;
+}
+.shiver .items-list .item {
+  align-items: center;
+  padding: 0 2px;
+  border-bottom: 1px solid #c9c7b8;
+}
+.shiver .items-list .item:last-child {
+  border-bottom: none;
+}
+.shiver .items-list .item .item-name {
+  color: #191813;
+}
+.shiver .items-list .item .item-name .item-image {
+  flex: 0 0 30px;
+  height: 30px;
+  background-size: 30px;
+  border: none;
+  margin-right: 5px;
+}
+.shiver .items-list .item-prop {
+  text-align: center;
+  border-left: 1px solid #c9c7b8;
+  border-right: 1px solid #c9c7b8;
+  font-size: 12px;
+}
+.shiver .items-list .items-header {
+  height: 28px;
+  margin: 2px 0;
+  padding: 0;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.05);
+  border: 2px groove #eeede0;
+  font-weight: bold;
+}
+.shiver .items-list .items-header > * {
+  font-size: 12px;
+  text-align: center;
+}
+.shiver .items-list .items-header .item-name {
+  padding-left: 5px;
+  text-align: left;
+}
+.shiver .item-formula {
+  flex: 0 0 200px;
+  padding: 0 8px;
+}
+.shiver .effects .item .effect-source,
+.shiver .effects .item .effect-duration,
+.shiver .effects .item .effect-controls {
+  text-align: center;
+  border-left: 1px solid #c9c7b8;
+  border-right: 1px solid #c9c7b8;
+  font-size: 12px;
+}
+.shiver .effects .item .effect-controls {
+  border: none;
+}
+
+/*# sourceMappingURL=shiver.css.map */
