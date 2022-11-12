@@ -30,6 +30,6 @@
   "secondaryTokenAttribute": "power",
   "url": "https://github.com/tomski80/shiver",
   "manifest": "https://github.com/tomski80/shiver/releases/download/v0.1.0-alpha/system.json",
-  "download": "https://github.com/tomski80/shiver/releases",
+  "download": "https://github.com/tomski80/shiver/releases/download/v0.1.0-alpha/shiver.zip",
   "license": "LICENSE.txt"
 }
