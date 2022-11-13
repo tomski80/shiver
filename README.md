@@ -9,9 +9,7 @@ The Shiver game is published by Parable Games Ltd. https://www.parablegames.co.u
 
 This is early realese and has not been tested other than by me. 
 
-There is functional character sheet. 
-There is NPC sheet. 
-
+There is functional character sheet, Npc sheet and various items. 
 There is no Doom counter yet.
 
 #### Legal 
