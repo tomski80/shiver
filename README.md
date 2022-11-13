@@ -14,3 +14,8 @@ There is NPC sheet.
 
 There is no Doom counter yet.
 
+## Legal 
+
+SHIVER and all associated names is copyright of
+Parable Games LTD
+
