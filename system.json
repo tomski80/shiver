@@ -1,7 +1,8 @@
 {
+  "id": "shiver",
   "name": "shiver",
-  "title": "shiver",
-  "description": "Unofficial system for the Shiver rpg",
+  "title": "Shiver",
+  "description": "Unofficial system for the Shiver by Parable Games",
   "version": "0.1.0",
   "compatibility": {
     "minimum": "10.285",
@@ -13,8 +14,8 @@
       "name": "Tomasz Straszewski"
     }
   ],
-  "esmodules": ["module/shiver.mjs"],
-  "styles": ["css/shiver.css"],
+  "esmodules": [ "module/shiver.mjs" ],
+  "styles": [ "css/shiver.css" ],
   "scripts": [],
   "packs": [],
   "languages": [
