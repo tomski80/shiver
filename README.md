@@ -14,6 +14,6 @@ There is no Doom counter yet.
 
 #### Legal 
 
-SHIVER and all associated names is copyright of
-Parable Games LTD
-
+SHIVER and all associated names is copyright of Parable Games LTD
+This product is an independent production and is not affiliated with Parable Games LTD. 
+It is published under the SHIVER Third Party License.
