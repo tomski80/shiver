@@ -2,8 +2,8 @@
   "id": "shiver",
   "name": "shiver",
   "title": "Shiver",
-  "description": "Unofficial system for the Shiver by Parable Games",
-  "version": "0.1.0",
+  "description": "This is a game system to support the Shiver game by https://www.parablegames.co.uk/ SHIVER and all associated names is copyright of Parable Games LTD --- This product is an independent production and is not affiliated with Parable Games LTD. It is published under the SHIVER Third Party License. Currently, it implements Character Sheet, Npc Sheet, Items, and unique Dice.",
+  "version": "0.1.1",
   "compatibility": {
     "minimum": "10.285",
     "verified": "10.286",
