@@ -263,7 +263,7 @@ export class shiverActorSheet extends ActorSheet {
 
     if (dataset.skillroll) {
       //console.log(dataset);
-      //console.log(dataset.skillroll);
+      console.log(dataset.skillroll);
       rollDialog(this.actor,dataset.skillroll,dataset.skilldice,dataset.talentdice);
     }
   }
@@ -553,6 +553,7 @@ let updateDialogDefaults = (html,skill,skilldice,talentdice) => {
                       <a class="inline-result">
                       <span>${diceHtml}</span>
                       <div></div>
+                      <span>${dices6}</span>
                       <span>${dices8}</span>`
                       //<i class="fas fa-dice-d6"></i>${roll.total}`
 
