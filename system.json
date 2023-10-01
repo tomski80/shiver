@@ -5,7 +5,7 @@
   "description": "This is a game system to support the Shiver game by https://www.parablegames.co.uk/ SHIVER and all associated names is copyright of Parable Games LTD --- This product is an independent production and is not affiliated with Parable Games LTD. It is published under the SHIVER Third Party License. Currently, it implements Character Sheet, Npc Sheet, Items, and unique Dice.",
   "version": "0.2.1",
   "compatibility": {
-    "minimum": "10.299",
+    "minimum": "10.283",
     "verified": "11.311",
     "maximum": "11"
   },
