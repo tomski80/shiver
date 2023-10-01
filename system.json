@@ -30,7 +30,7 @@
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "power",
   "url": "https://github.com/tomski80/shiver",
-  "manifest": "https://github.com/tomski80/shiver/releases/download/v0.2.1-beta/system.json",
-  "download": "https://github.com/tomski80/shiver/releases/download/v0.2.1-beta/shiver.zip",
+  "manifest": "https://github.com/tomski80/shiver/releases/download/v0.2.1-beta.2/system.json",
+  "download": "https://github.com/tomski80/shiver/releases/download/v0.2.1-beta.2/shiver.zip",
   "license": "LICENSE.txt"
 }
