@@ -1,6 +1,6 @@
 <form class="{{cssClass}} {{actor.type}} flexcol" autocomplete="off">
 
-  {{!-- Sheet Header --}}
+  {{!-- Sheet Header --}}actor
   <header class="sheet-header ">
 
     <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
@@ -13,35 +13,35 @@
       </div>
 
       <div class="grid-span-3 resource-content">
-        <input name="data.attributes.archetype" type="text" value="{{data.attributes.archetype}}" placeholder="Archetype"/></h3>
-        <label for="data.attributes.archetype" class="resource-label">Archetype</label>
+        <input name="system.attributes.archetype" type="text" value="{{system.attributes.archetype}}" placeholder="Archetype"/></h3>
+        <label for="system.attributes.archetype" class="resource-label">Archetype</label>
       </div>
 
       <div class="resource">
         <div class="resource-content flexrow flex-center flex-between">
-        <input type="text" name="data.attributes.level.value" value="{{data.attributes.level.value}}" data-dtype="Number"/>
+        <input type="text" name="system.attributes.level.value" value="{{system.attributes.level.value}}" data-dtype="Number"/>
         </div>
-        <label for="data.attributes.level.value" class="resource-label">Level</label>
+        <label for="system.attributes.level.value" class="resource-label">Level</label>
       </div>
 
       <div class="grid-span-4 resource-content">
-        <input name="data.attributes.background" type="text" value="{{data.attributes.background}}" placeholder="Background"/>
-        <label for="data.attributes.background" class="resource-label">Background</label>
+        <input name="system.attributes.background" type="text" value="{{system.attributes.background}}" placeholder="Background"/>
+        <label for="system.attributes.background" class="resource-label">Background</label>
       </div>
       
       <div class="grid-span-2 resource-content">
-        <input name="data.attributes.gender" type="text" value="{{data.attributes.gender}}" placeholder="Gender"/>
-        <label for="data.attributes.gender" class="resource-label">Gender</label>
+        <input name="system.attributes.gender" type="text" value="{{system.attributes.gender}}" placeholder="Gender"/>
+        <label for="system.attributes.gender" class="resource-label">Gender</label>
       </div>
 
       <div class="resource-content">
-        <input name="data.attributes.age" type="number" value="{{data.attributes.age}}" placeholder="20"/>
-        <label for="data.attributes.age" class="resource-label">Age</label>
+        <input name="system.attributes.age" type="number" value="{{system.attributes.age}}" placeholder="20"/>
+        <label for="system.attributes.age" class="resource-label">Age</label>
       </div>
 
       <div class="resource-content">
-        <input name="data.attributes.luck.value" type="number" value="{{data.attributes.luck.value}}" placeholder="0"/></h3>
-        <label for="data.attributes.luck.value" class="resource-label">Luck</label>
+        <input name="system.attributes.luck.value" type="number" value="{{system.attributes.luck.value}}" placeholder="0"/></h3>
+        <label for="system.attributes.luck.value" class="resource-label">Luck</label>
       </div>
 
       <div class="grid-span-8">
@@ -50,8 +50,8 @@
 
       <div class="resource grid-span-3">
         <div class="resource-content">
-          <input type="text" name="data.attributes.fear" value="{{data.attributes.fear}}" data-dtype="text"/>
-          <label for="data.attributes.fear" class="resource-label">Fear</label>
+          <input type="text" name="system.attributes.fear" value="{{system.attributes.fear}}" data-dtype="text"/>
+          <label for="system.attributes.fear" class="resource-label">Fear</label>
         </div>
       </div>
   
@@ -59,20 +59,20 @@
       <div class="resource flex-group-center grid-span-4">
         <hr>
         <!--
-        <input class="checkbox-fear" type="radio" id="stable" name="fear-level" value="0" data-status="stable" {{checked data.attributes.stable}}> -->
-        <a class="checkbox-fear" title="stable" data-status="stable" data-target="data.attributes.fear-level.value">
+        <input class="checkbox-fear" type="radio" id="stable" name="fear-level" value="0" data-status="stable" {{checked system.attributes.stable}}> -->
+        <a class="checkbox-fear" title="stable" data-status="stable" data-target="system.attributes.fear-level.value">
         stable 
-        <i class="{{data.attributes.fear-level.icon.stable}}" data-target="system.attributes['fear-level'].icon.stable"></i></a>
-        <a class="checkbox-fear" title="afraid" data-status="afraid" data-target="data.attributes.fear-level.value">
+        <i class="{{system.attributes.fear-level.icon.stable}}" data-target="system.attributes['fear-level'].icon.stable"></i></a>
+        <a class="checkbox-fear" title="afraid" data-status="afraid" data-target="system.attributes.fear-level.value">
           afraid 
-        <i class="{{data.attributes.fear-level.icon.afraid}}" data-target="system.attributes['fear-level'].icon"></i></a>
-        <a class="checkbox-fear" title="terrified" data-status="terrified" data-target="data.attributes.fear-level.value">
+        <i class="{{system.attributes.fear-level.icon.afraid}}" data-target="system.attributes['fear-level'].icon"></i></a>
+        <a class="checkbox-fear" title="terrified" data-status="terrified" data-target="system.attributes.fear-level.value">
           terrified 
-        <i class="{{data.attributes.fear-level.icon.terrified}}" data-target="system.attributes['fear-level'].icon.stable"></i></a>
+        <i class="{{system.attributes.fear-level.icon.terrified}}" data-target="system.attributes['fear-level'].icon.stable"></i></a>
       </div>
   
       <div>
-        <input name="data.speed.value" type="Number" value="{{data.speed.value}}" placeholder="20"/></h3>
+        <input name="system.speed.value" type="Number" value="{{system.speed.value}}" placeholder="20"/></h3>
         <label for="Speed" class="resource-label">Speed</label>
       </div>
 
@@ -81,8 +81,7 @@
       </div>
 
       <div class="grid-span-7 flex-group-center">
-        {{#each data.attributes.lifeline as |check key|}}
-        {{log check key}}
+        {{#each system.attributes.lifeline as |check key|}}
         {{#if check}}
         <span><i class="far fa-times-circle"></i></span>
         {{/if}}
@@ -93,7 +92,7 @@
       </div>
 
       <div class="resource">
-        <input class="health" type="Number" name="data.hp.value" value="{{data.hp.value}}" data-dtype="Number" data-target="data.hp.value"/>
+        <input class="health" type="Number" name="system.hp.value" value="{{system.hp.value}}" data-dtype="Number" data-target="system.hp.value"/>
       </div>
 
       <div class="grid-span-7 flex-group-center lifeline-offset">
@@ -104,7 +103,7 @@
       </div>
       
       <div class="resource nopadding nomargin">
-        <label for="data.hp.value" class="resource-label">Health</label>
+        <label for="system.hp.value" class="resource-label">Health</label>
       </div>
 
     </div>
@@ -143,20 +142,20 @@
                   <div class="skill-label">skill</div>
                   <div class="skill-label">talent</div>
                 </div>
-                {{#each data.abilities as |ability key|}}
+                {{#each system.abilities as |ability key|}}
                 <div class="skill flex-group-center">
-                  <img class="skill-img rollable" src="{{ability.img}}" title="data.abilities.{{key}}.img" height="50" width="50" 
+                  <img class="skill-img rollable" src="{{ability.img}}" title="system.abilities.{{key}}.img" height="50" width="50" 
                     data-skillRoll="{{key}}" 
                     data-skilldice="{{ability.skill.value}}" 
                     data-talentdice="{{ability.talent.value}}"/> 
                   <span class="skill-text">{{key}}</span>
                   <div class="header-fields grid grid-2col">
-                    <input class="skill-text text-grey" type="text" name="data.abilities.{{key}}.skill.reference" value="{{ability.skill.reference}}" data-dtype="Number"/> 
-                    <input class="skill-text" type="text" name="data.abilities.{{key}}.skill.value" value="{{ability.skill.value}}" data-dtype="Number"/> 
+                    <input class="skill-text text-grey" type="text" name="system.abilities.{{key}}.skill.reference" value="{{ability.skill.reference}}" data-dtype="Number"/> 
+                    <input class="skill-text" type="text" name="system.abilities.{{key}}.skill.value" value="{{ability.skill.value}}" data-dtype="Number"/> 
                   </div>
                   <div class="grid grid-2col">
-                    <input class="skill-text text-grey" type="text" name="data.abilities.{{key}}.talent.reference" value="{{ability.talent.reference}}" data-dtype="Number"/>
-                    <input class="skill-text" type="text" name="data.abilities.{{key}}.talent.value" value="{{ability.talent.value}}" data-dtype="Number"/>
+                    <input class="skill-text text-grey" type="text" name="system.abilities.{{key}}.talent.reference" value="{{ability.talent.reference}}" data-dtype="Number"/>
+                    <input class="skill-text" type="text" name="system.abilities.{{key}}.talent.value" value="{{ability.talent.value}}" data-dtype="Number"/>
                   </div>
                 </div>
                 {{/each}}
@@ -185,7 +184,7 @@
     {{!-- Biography Tab --}}
     <div class="tab biography" data-group="primary" data-tab="description">
       {{!-- If you want TinyMCE editors to output inline rolls when rendered, you need to pass the actor's roll data to the rollData property. --}}
-      {{editor content=data.biography target="data.biography" rollData=rollData button=true owner=owner editable=editable}}
+      {{editor content=system.biography target="system.biography" rollData=rollData button=true owner=owner editable=editable}}
     </div>
 
     {{!-- Owned Items Tab --}}

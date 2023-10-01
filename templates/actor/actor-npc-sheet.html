@@ -14,61 +14,61 @@
       </div>
 
       <div class="grid-span-3 resource-content">
-        <input name="data.type" type="text" value="{{data.type}}" placeholder="Type"/></h3>
-        <label for="data.type" class="resource-label">Type</label>
+        <input name="system.type" type="text" value="{{system.type}}" placeholder="Type"/></h3>
+        <label for="system.type" class="resource-label">Type</label>
       </div>
 
       <div class="resource">
         <div class="resource-content flexrow flex-center flex-between">
-        <input type="text" name="data.cr" value="{{data.cr}}" data-dtype="Number"/>
+        <input type="text" name="system.cr" value="{{system.cr}}" data-dtype="Number"/>
         </div>
-        <label for="data.cr" class="resource-label">CR</label>
+        <label for="system.cr" class="resource-label">CR</label>
       </div>
 
       <div class="grid-span-4 resource-content">
-        <input name="data.reaction" type="text" value="{{data.reaction}}" placeholder="Reaction"/>
-        <label for="data.reaction" class="resource-label">Reaction</label>
+        <input name="system.reaction" type="text" value="{{system.reaction}}" placeholder="Reaction"/>
+        <label for="system.reaction" class="resource-label">Reaction</label>
       </div>
       
       <div class="grid-span-3 resource-content">
-        <input name="data.rating.name" type="text" value="{{data.rating.name}}" placeholder="Amber"/>
-        <label for="data.rating.name" class="resource-label">Deathcon Rating</label>
+        <input name="system.rating.name" type="text" value="{{system.rating.name}}" placeholder="Amber"/>
+        <label for="system.rating.name" class="resource-label">Deathcon Rating</label>
       </div>
 
       <div>
-        <input name="data.speed.value" type="Number" value="{{data.speed.value}}" placeholder="20"/></h3>
+        <input name="system.speed.value" type="Number" value="{{system.speed.value}}" placeholder="20"/></h3>
         <label for="Speed" class="resource-label">Speed</label>
       </div>
 
       <div class="resource grid-span-4">
         <div class="resource-content">
-          <input type="text" name="data.size" value="{{data.size}}" data-dtype="text" placeholder="Humanoid"/>
-          <label for="data.size" class="resource-label">Size</label>
+          <input type="text" name="system.size" value="{{system.size}}" data-dtype="text" placeholder="Humanoid"/>
+          <label for="system.size" class="resource-label">Size</label>
         </div>
       </div>
 
       <div class="resource grid-span-2">
-        <input class="health" type="Number" name="data.hp.max" value="{{data.hp.max}}" data-dtype="Number" data-target="data.hp.max"/>
-        <label for="data.hp.max" class="resource-label">HP Max</label>
+        <input class="health" type="Number" name="system.hp.max" value="{{system.hp.max}}" data-dtype="Number" data-target="system.hp.max"/>
+        <label for="system.hp.max" class="resource-label">HP Max</label>
       </div>
       
       <div class="resource grid-span-2">
-        <input class="health" type="Number" name="data.hp.value" value="{{data.hp.value}}" data-dtype="Number" data-target="data.hp.value"/>
-        <label for="data.hp.value" class="resource-label">HP</label>
+        <input class="health" type="Number" name="system.hp.value" value="{{system.hp.value}}" data-dtype="Number" data-target="system.hp.value"/>
+        <label for="system.hp.value" class="resource-label">HP</label>
       </div>
 
       <div  class="resource grid-span-8"><hr></div>
       <div class="resource grid-span-8">
-        <input type="text" name="data.immunity" value="{{data.immunity}}" data-dtype="String" data-target="data.immunity"/>
-        <label for="data.immunity" class="resource-label">Immunity</label>
+        <input type="text" name="system.immunity" value="{{system.immunity}}" data-dtype="String" data-target="system.immunity"/>
+        <label for="system.immunity" class="resource-label">Immunity</label>
       </div>
       <div class="resource grid-span-8">
-        <input type="text" name="data.resistance" value="{{data.resistance}}" data-dtype="String" data-target="data.resistance"/>
-        <label for="data.resistance" class="resource-label">Resistance</label>
+        <input type="text" name="system.resistance" value="{{system.resistance}}" data-dtype="String" data-target="system.resistance"/>
+        <label for="system.resistance" class="resource-label">Resistance</label>
       </div>
       <div class="resource grid-span-8">
-        <input type="text" name="data.weakness" value="{{data.weakness}}" data-dtype="String" data-target="data.weakness"/>
-        <label for="data.weakness" class="resource-label">Weakness</label>
+        <input type="text" name="system.weakness" value="{{system.weakness}}" data-dtype="String" data-target="system.weakness"/>
+        <label for="system.weakness" class="resource-label">Weakness</label>
       </div>
     </div>
   </header>
@@ -98,16 +98,16 @@
 
             <div class="">
               <div class="grid grid-6col flex-group-center">
-                {{#each data.skills as |skill key|}}
+                {{#each system.skills as |skill key|}}
                 <div class="skill flex-group-center">
-                  <img class="skill-img rollable" src="{{skill.img}}" title="data.skills.{{key}}.img" height="50" width="50" 
+                  <img class="skill-img rollable" src="{{skill.img}}" title="system.skills.{{key}}.img" height="50" width="50" 
                     data-skillRoll="{{key}}" 
                     data-skilldice="{{skill.value}}" 
                     data-talentdice="0"/> 
                   <span class="skill-text">{{key}}</span>
                   <hr>
                   <div class="header-fields">
-                    <input class="skill-text" type="text" name="data.skills.{{key}}.value" value="{{skill.value}}" data-dtype="Number"/> 
+                    <input class="skill-text" type="text" name="system.skills.{{key}}.value" value="{{skill.value}}" data-dtype="Number"/> 
                   </div>
                 </div>
                 {{/each}}
@@ -119,7 +119,7 @@
       
       <span>DESCRIPTION</span>
       {{!-- If you want TinyMCE editors to output inline rolls when rendered, you need to pass the actor's roll data to the rollData property. --}}
-      {{editor content=data.description target="data.description" rollData=rollData button=true owner=owner editable=editable}}
+      {{editor content=system.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
     </div>
 
     {{!-- Owned Items Tab --}}
