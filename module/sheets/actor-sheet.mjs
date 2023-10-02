@@ -247,6 +247,7 @@ export class shiverActorSheet extends ActorSheet {
           let rTalent = this.actor.system.abilities[m_skill].talent.value;
           rollDialog(this.actor,dataset.skillroll,rSkill,rTalent);
         }
+        return;
       }
     }
 
@@ -262,7 +263,7 @@ export class shiverActorSheet extends ActorSheet {
       return roll;
     }
 
-    if (dataset.skillroll & dataset.rolltype != 'item') {
+    if (dataset.skillroll) {
       rollDialog(this.actor,dataset.skillroll,dataset.skilldice,dataset.talentdice);
     }
   }
