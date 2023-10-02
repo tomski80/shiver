@@ -32,6 +32,14 @@
             <h4>{{item.name}}</h4>
           </div> 
           {{#if item.system.skill}}
+          <!-- rolling from item using dialog roller - look in actor-sheet _onRoll() --> 
+          <div  class="trait-name rollable" data-target="display" data-rollType="item"  
+          data-skillRoll="{{toLowerCase item.system.skill}}" 
+          data-skilldice="{{@abilities.grit.skill.value}}" 
+          data-talentdice="{{@abilities.grit.talent.value}}"> 
+          <img src="{{item.system.skill-img}}" width="20" height="20">
+          </div> 
+          <!-- end -->
           <div  class="background-black togglable-description">
             <span class="skill-text">Skill:{{item.system.skill}}</span>
           </div>
@@ -47,14 +55,17 @@
             <span class="skill-text">Armour HP:{{item.system.hp}}</span>
           </div>
           {{/if}}
+
           <div class="trait-controls">
+
             <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
             <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
             <a class="item-control item-chat" title="To Chat"><i class="far fa-comment-alt"></i></a>
           </div>
         </div>
         <div class="flexrow grid-span-2 description" style="display:{{item.system.display}};">
-          <span>{{{item.system.description}}}</span>
+        <span>{{{item.enrichDescription}}}</span>
+        <!-- <span>{{{editor item.enrichDescription  target="item.system.description" button=true editable=editable}}}</span> -->
         </div>
       </div>
     </li>

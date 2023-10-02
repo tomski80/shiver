@@ -25,24 +25,22 @@ export class shiverActorSheet extends ActorSheet {
   /* -------------------------------------------- */
 
   /** @override */
-  getData() {
+  async getData() {
     // Retrieve the data structure from the base sheet. You can inspect or log
     // the context variable to see the structure, but some key properties for
     // sheets are the actor object, the data object, whether or not it's
     // editable, the items array, and the effects array.
-    const context = super.getData();
-    //console.log("WHAT IS THE CONTEXT?!");
-    //console.log(context);
+    const context = await super.getData();
+
     // Use a safe clone of the actor data for further operations.
     const actorData = this.actor.toObject(false);
 
     // Add the actor's data to context.data for easier access, as well as flags.
     context.system= actorData.system;
     context.flags = actorData.flags;
-
     // Prepare character data and items.
     if (actorData.type == 'character') {
-      this._prepareItems(context);
+      await this._prepareItems(context);
       this._prepareCharacterData(context);
     }
 
@@ -56,6 +54,7 @@ export class shiverActorSheet extends ActorSheet {
 
     // Prepare active effects
     context.effects = prepareActiveEffectCategories(this.actor.effects);
+    context.enrichBio = await TextEditor.enrichHTML(actorData.system.biography, {async: true});
 
     return context;
   }
@@ -81,15 +80,18 @@ export class shiverActorSheet extends ActorSheet {
    *
    * @return {undefined}
    */
-  _prepareItems(context) {
+  async _prepareItems(context) {
     // Initialize containers.
     const gear = [];
     const traits = [];
     const powers = [];
 
     // Iterate through items, allocating to containers
-    for (let i of context.items) {
-      i.img = i.img || DEFAULT_TOKEN;
+    for (let index = 0; index < context.items.length; index++)
+    {
+      let i = context.items[index];
+      i.enrichDescription = await TextEditor.enrichHTML(i.system.description, { async:  true });
+      i.img = context.items[index].img || DEFAULT_TOKEN;
       // Append to gear.
       if (i.type === 'item' || i.type === "weapon" || i.type === "armour") {
         gear.push(i);
@@ -99,7 +101,7 @@ export class shiverActorSheet extends ActorSheet {
         traits.push(i);
       }
       // Append to spells.
-      else if (i.type === 'power') {
+      else if (i === 'power') {
           powers.push(i);
         }
       }
@@ -119,9 +121,7 @@ export class shiverActorSheet extends ActorSheet {
     // Render the item sheet for viewing/editing prior to the editable check.
     html.find('.item-edit').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
-      //console.log(li);
       const item = this.actor.items.get(li.data("itemId"));
-      //console.log(item);
       item.sheet.render(true);
     });
 
@@ -143,14 +143,13 @@ export class shiverActorSheet extends ActorSheet {
     html.find('.item-chat').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.items.get(li.data("itemId"));
-      //console.log(item);
       let html;
       if(item.type === "weapon"){
       html = `<hr><h3>WEAPON  [${item.name}]</h3>
               <h4>Skill: ${item.system.skill}</h4>
               <h4>Range: ${item.system.range}</h4>
               <h4>Damage: ${item.system.damage} ${item.system.damagetype} </h4><hr>
-              <span>${item.system.description}</span>`
+              <span>${ item.system.description}</span>`
       }else if(item.type === "power"){
       html = `<hr><h3>POWER  [${item.name}]</h3>
         <h4>Skill: ${item.system.skill}</h4>
@@ -206,16 +205,12 @@ export class shiverActorSheet extends ActorSheet {
   async _onItemCreate(event) {
     event.preventDefault();
     const header = event.currentTarget;
-    //console.log("_onItemCreate");
-    //console.log(header);
     // Get the type of item to create.
     const type = header.dataset.type;
     // Grab any data associated with this control.
     const data = duplicate(header.dataset);
     // Initialize a default name.
     const name = `New ${type.capitalize()}`;
-    //console.log("Loggin the name!")
-    //console.log(name);
     // Prepare the item object.
     const itemData = {
       name: name,
@@ -238,14 +233,20 @@ export class shiverActorSheet extends ActorSheet {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
-    //console.log(dataset);
 
     // Handle item rolls.
-    if (dataset.rollType) {
-      if (dataset.rollType == 'item') {
+    if (dataset.rolltype) {
+      if (dataset.rolltype == 'item') {
         const itemId = element.closest('.item').dataset.itemId;
         const item = this.actor.items.get(itemId);
-        if (item) return item.roll();
+        //if (item) return item.roll();
+        if(item)
+        {
+          let m_skill = item.system.skill.toLowerCase();
+          let rSkill = this.actor.system.abilities[m_skill].skill.value;
+          let rTalent = this.actor.system.abilities[m_skill].talent.value;
+          rollDialog(this.actor,dataset.skillroll,rSkill,rTalent);
+        }
       }
     }
 
@@ -261,9 +262,7 @@ export class shiverActorSheet extends ActorSheet {
       return roll;
     }
 
-    if (dataset.skillroll) {
-      //console.log(dataset);
-      console.log(dataset.skillroll);
+    if (dataset.skillroll & dataset.rolltype != 'item') {
       rollDialog(this.actor,dataset.skillroll,dataset.skilldice,dataset.talentdice);
     }
   }
@@ -311,7 +310,7 @@ export class shiverActorSheet extends ActorSheet {
     this.actor.sheet.render(true);
   }
 
-  _onToggleDescription(event){
+  async _onToggleDescription(event){
     event.preventDefault();
     const element = event.currentTarget;
     const itemId = element.closest('.item').dataset.itemId;
@@ -328,7 +327,6 @@ export class shiverActorSheet extends ActorSheet {
 /*
         const target = dataset.target;
 
-        console.log(target);
     const actorData = duplicate(this.actor);
     if(actorData.system[target] == "block;")
     {
@@ -388,7 +386,6 @@ const roller = new Dialog({
       label: "Roll",
       callback: (html) => {
         const formData = new FormDataExtended(html[0].querySelector('form'));
-        //console.log(formData);
         const skillDice = (formData.object["skillPool"]);
         const talentDice = (formData.object["talentPool"]);
         const skill = (formData.object["skill"]);      
@@ -520,8 +517,6 @@ let updateDialogDefaults = (html,skill,skilldice,talentdice) => {
       }
   }
 
-  //console.log("SUcessuccesses"+ successes);
-  //console.log("Strange"+ successes);
       
   let dices6 = '';
   let dices8 = '';
@@ -555,7 +550,6 @@ let updateDialogDefaults = (html,skill,skilldice,talentdice) => {
                       <div></div>
                       <span>${dices6}</span>
                       <span>${dices8}</span>`
-                      //<i class="fas fa-dice-d6"></i>${roll.total}`
 
   ChatMessage.create({
     type: CONST.CHAT_MESSAGE_TYPES.ROLL,

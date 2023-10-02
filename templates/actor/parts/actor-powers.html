@@ -12,6 +12,14 @@
           <div class="trait-name " data-target="display"> 
             <h4>{{item.name}}</h4>
           </div> 
+           <!-- rolling from item using dialog roller - look in actor-sheet _onRoll() --> 
+          <div class="trait-name rollable" data-target="display" data-rollType="item"  
+          data-skillRoll="{{toLowerCase item.system.skill}}" 
+          data-skilldice="{{@abilities.grit.skill.value}}" 
+          data-talentdice="{{@abilities.grit.talent.value}}"> 
+          <img src="{{item.system.skill-img}}" width="20" height="20">
+          </div> 
+          <!-- end -->
           <div class="trait-controls">
             <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
             <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
@@ -19,7 +27,7 @@
           </div>
         </div>
         <div class="flexrow grid-span-2 description" style="display:{{item.system.display}};">
-          <span>{{{item.system.description}}}</span>
+          <span>{{{item.enrichDescription}}}</span>
         </div>
       </div>
     </li>

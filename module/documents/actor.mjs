@@ -90,7 +90,15 @@ export class shiverActor extends Actor {
     // formulas like `@str.mod + 4`.
     if (data.abilities) {
       for (let [k, v] of Object.entries(data.abilities)) {
-        data[k] = foundry.utils.deepClone(v);
+        console.log(k);
+        let kskill = k + "-skill";
+        let ktalent = k + "-talent";
+        let valSkill = v.skill.value;
+        let valTalent = v.talent.value;
+        console.log(kskill);
+        console.log(valSkill);
+        data[kskill] = foundry.utils.deepClone(valSkill);
+        data[ktalent] = foundry.utils.deepClone(valTalent)
       }
     }
 

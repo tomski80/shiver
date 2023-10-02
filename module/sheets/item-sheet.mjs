@@ -28,9 +28,9 @@ export class shiverItemSheet extends ItemSheet {
   /* -------------------------------------------- */
 
   /** @override */
-  getData() {
+  async getData() {
     // Retrieve base data structure.
-    const context = super.getData();
+    const context = await super.getData();
 
     // Use a safe clone of the item data for further operations.
     const itemData = context.item;
@@ -46,6 +46,11 @@ export class shiverItemSheet extends ItemSheet {
     context.system = itemData.system;
     context.flags = itemData.flags;
 
+   // console.log("getData item sheet");
+   // console.log(context.system.description );
+    context.enrichDescription = await TextEditor.enrichHTML(context.system.description, {async: true });
+    //context.DUPA = "dupa";
+    
     return context;
   }
 

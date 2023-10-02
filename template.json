@@ -192,6 +192,7 @@
     "power": {
       "templates": ["base"],
       "skill": "Strange",
+      "skill-img": "systems/shiver/assets/icons/attack-icon-14.png",
       "damage": 1,
       "damagetype": "Fire",
       "range" : 5
@@ -200,6 +201,7 @@
       "templates": ["base"],
       "weight": 0,
       "skill" : "Grit",
+      "skill-img": "systems/shiver/assets/icons/attack-icon-14.png",
       "damage": 1,
       "damagetype": "Blunt",
       "range" : 5
