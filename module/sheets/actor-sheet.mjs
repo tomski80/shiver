@@ -46,7 +46,7 @@ export class shiverActorSheet extends ActorSheet {
 
     // Prepare NPC data and items.
     if (actorData.type == 'npc') {
-      this._prepareItems(context);
+      await this._prepareItems(context);
     }
 
     // Add roll data for TinyMCE editors.
