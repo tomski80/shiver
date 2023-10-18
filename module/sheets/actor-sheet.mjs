@@ -95,6 +95,7 @@ export class shiverActorSheet extends ActorSheet {
       i.img = context.items[index].img || DEFAULT_TOKEN;
       // Append to gear.
       if (i.type === 'item' || i.type === "weapon" || i.type === "armour") {
+        
         gear.push(i);
       }
       // Append to trait
@@ -102,9 +103,9 @@ export class shiverActorSheet extends ActorSheet {
         traits.push(i);
       }
       // Append to spells.
-      else if (i === 'power') {
-          powers.push(i);
-        }
+      else if (i.type === 'power') {
+        powers.push(i);
+      }
       }
     // Assign and return
     context.gear = gear;
