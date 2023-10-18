@@ -55,6 +55,7 @@ export class shiverActorSheet extends ActorSheet {
     // Prepare active effects
     context.effects = prepareActiveEffectCategories(this.actor.effects);
     context.enrichBio = await TextEditor.enrichHTML(actorData.system.biography, {async: true});
+    context.description = await TextEditor.enrichHTML(actorData.system.description, {async: true});
 
     return context;
   }
