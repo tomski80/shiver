@@ -8,7 +8,7 @@ export class shiverActorSheet extends ActorSheet {
 
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["shiver", "sheet", "actor"],
       template: "systems/shiver/templates/actor/actor-sheet.html",
       width: 600,
@@ -95,7 +95,7 @@ export class shiverActorSheet extends ActorSheet {
       i.img = context.items[index].img || DEFAULT_TOKEN;
       // Append to gear.
       if (i.type === 'item' || i.type === "weapon" || i.type === "armour") {
-        
+
         gear.push(i);
       }
       // Append to trait
@@ -119,7 +119,7 @@ export class shiverActorSheet extends ActorSheet {
   activateListeners(html) {
     super.activateListeners(html);
     //console.log("Active listeneres");
-    
+
     // Render the item sheet for viewing/editing prior to the editable check.
     html.find('.item-edit').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
@@ -179,7 +179,7 @@ export class shiverActorSheet extends ActorSheet {
     // Rollable abilities.
     html.find('.rollable').click(this._onRoll.bind(this));
 
-    // Checkbox (fear) events 
+    // Checkbox (fear) events
     html.find(".checkbox-fear").click(this._onCheckFear.bind(this));
 
     // lifeline
@@ -210,7 +210,7 @@ export class shiverActorSheet extends ActorSheet {
     // Get the type of item to create.
     const type = header.dataset.type;
     // Grab any data associated with this control.
-    const data = duplicate(header.dataset);
+    const data = foundry.utils.duplicate(header.dataset);
     // Initialize a default name.
     const name = `New ${type.capitalize()}`;
     // Prepare the item object.
@@ -307,7 +307,7 @@ export class shiverActorSheet extends ActorSheet {
     actorData.system.hp.value = hp;
     for(let i=0; i < 16; ++i)
     {
-      actorData.system.attributes.lifeline[15-i] = !((i) < hp); 
+      actorData.system.attributes.lifeline[15-i] = !((i) < hp);
     }
     this.actor.update(actorData);
     this.actor.sheet.render(true);
@@ -318,7 +318,7 @@ export class shiverActorSheet extends ActorSheet {
     const element = event.currentTarget;
     const itemId = element.closest('.item').dataset.itemId;
     const item = this.actor.items.get(itemId);
-    //const itemCopy = duplicate(item); 
+    //const itemCopy = duplicate(item);
     if (item){
       if(item.system.display == "none"){
         item.system.display = "block";
@@ -391,7 +391,7 @@ const roller = new Dialog({
         const formData = new FormDataExtended(html[0].querySelector('form'));
         const skillDice = (formData.object["skillPool"]);
         const talentDice = (formData.object["talentPool"]);
-        const skill = (formData.object["skill"]);      
+        const skill = (formData.object["skill"]);
         const dicePool = skillDice+'d6'+'+'+talentDice+'d8';
         rollPool(dicePool,skill, actor);
       },
@@ -406,7 +406,7 @@ const roller = new Dialog({
       updateDialogDefaults(html,skill,skillDice,talentDice);
       html.on('change', updateSkillSelection)
     },
-    default: "roll" 
+    default: "roll"
   });
 
 
@@ -441,7 +441,7 @@ let updateDialogDefaults = (html,skill,skilldice,talentdice) => {
  *  Roll the pool of dice
  */
  async function rollPool(pool, skill, actor){
-  let roll = await new Roll(pool).evaluate({async: true});
+  let roll = await new Roll(pool).evaluate();
 
   let skillType = 0;
   switch(skill){
@@ -480,11 +480,11 @@ let updateDialogDefaults = (html,skill,skilldice,talentdice) => {
           if(i == 0)
           {
               d6results.push(roll.dice[i].results[j].result);
-              if( roll.dice[i].results[j].result == skillType) successes += 1; 
+              if( roll.dice[i].results[j].result == skillType) successes += 1;
               if( roll.dice[i].results[j].result == 5) strange+=1;
               if(roll.dice[i].results[j].result == 6) luck += 1;
           }
-          
+
           //talent dice
           if(i == 1){
               let dieResult = roll.dice[i].results[j].result;
@@ -516,20 +516,20 @@ let updateDialogDefaults = (html,skill,skilldice,talentdice) => {
                       break;
               }
           }
-          
+
       }
   }
 
-      
+
   let dices6 = '';
   let dices8 = '';
 
   for(let i = 0; i < d6results.length; ++i){
-      dices6 += '<i class="fas fa-dice-d6"></i>'+d6results[i]+'  '; 
+      dices6 += '<i class="fas fa-dice-d6"></i>'+d6results[i]+'  ';
   }
 
   for(let i = 0; i < d8results.length; ++i){
-      dices8 += '<i class="fas fa-dice-d8"></i>'+d8results[i]+'  '; 
+      dices8 += '<i class="fas fa-dice-d8"></i>'+d8results[i]+'  ';
   }
 
   let printsuccesses = '';
@@ -538,7 +538,7 @@ let updateDialogDefaults = (html,skill,skilldice,talentdice) => {
   }else{
       printsuccesses = `<h3><span style="color:red">successes: <b>${successes}</b></span></h3>`
   }
-  
+
 
   let diceHtml = await roll.render();
   let results_html = `<h2>Rolled <b>${skill}</b></h2>
@@ -555,7 +555,7 @@ let updateDialogDefaults = (html,skill,skilldice,talentdice) => {
                       <span>${dices8}</span>`
 
   ChatMessage.create({
-    type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+    type: CONST.CHAT_MESSAGE_STYLES.OTHER,
     rolls: [roll],
     rollMode: game.settings.get("core", "rollMode", "roll", ),
     user: game.user._id,

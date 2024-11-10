@@ -6,7 +6,7 @@ export class shiverItemSheet extends ItemSheet {
 
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["shiver", "sheet", "item"],
       width: 520,
       height: 480,
@@ -50,7 +50,7 @@ export class shiverItemSheet extends ItemSheet {
    // console.log(context.system.description );
     context.enrichDescription = await TextEditor.enrichHTML(context.system.description, {async: true });
     //context.DUPA = "dupa";
-    
+
     return context;
   }
 

@@ -1,4 +1,4 @@
-export class ShiverSkillDie extends Die {
+export class ShiverSkillDie extends foundry.dice.terms.Die {
     constructor(termData) {
       super(termData);
       this.faces = 6;
@@ -24,7 +24,7 @@ export class ShiverSkillDie extends Die {
     }
 }
 
-export class ShiverTalentDie extends Die {
+export class ShiverTalentDie extends foundry.dice.terms.Die {
   constructor(termData) {
     super(termData);
     this.faces = 8;
@@ -51,4 +51,3 @@ export class ShiverTalentDie extends Die {
       }[result.result];
   }
 }
-  
